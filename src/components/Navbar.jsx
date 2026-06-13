@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
-import logoCompanyBlack from "../assets/NFclaro.png";
 
 export const navMenu = [
   { id: 1, name: "Inicio", url: "#inicio" },
@@ -40,7 +39,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-active" : ""}`}>
       <div className="navbar-left">
         <a href="#inicio" className="logo-container" onClick={handleLinkClick}>
-          <img src={logoCompanyBlack} alt="Logo Arquitectura" className="logo" />
+          <img src="/NFclaro.png" alt="Logo Arquitectura" className="logo" />
           <span className="logo-text">NF ARQUITECTURA</span>
         </a>
       </div>
