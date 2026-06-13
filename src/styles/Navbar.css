@@ -1,61 +1,94 @@
+/* Fuente Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Navbar principal */
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;           
-  position: fixed;               
+  align-items: center;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 1.75rem 4rem;         
-  
-  /* CAMBIO: Plateado oscuro titanio con transparencia */
-  background-color: rgba(33, 37, 41, 0.85); 
-  backdrop-filter: blur(12px);
-  
-  /* CAMBIO: Línea divisoria en un gris platinado muy sutil */
-  border-b: 1px solid rgba(255, 255, 255, 0.08);   
+  padding: 1.75rem 4rem;
+
+  background: transparent;
+
+  transition: all 0.4s ease;
   z-index: 1000;
 }
 
+/* Navbar al hacer scroll */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Contenedor logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+/* Imagen logo */
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Texto ARQUITECTURA */
+.logo-text {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Menú */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 3rem;                     
+  gap: 3rem;
 }
 
-/* Estilo para los enlaces del menú */
+/* Links */
 .nav-url {
   text-decoration: none;
-  
-  /* CAMBIO: Blanco platinado suave para las letras */
-  color: #e0e0e6;                
-  
-  font-size: 0.85rem;            
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
   font-weight: 500;
-  text-transform: uppercase;     
-  letter-spacing: 0.15em;        
-  position: relative;            
-  transition: color 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
+/* Hover */
 .nav-url:hover {
-  /* CAMBIO: Blanco puro brillante al pasar el cursor */
-  color: #ffffff;                
+  color: white;
 }
 
+/* Línea dorada */
 .nav-url::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1px;
-  bottom: -6px;
+  height: 2px;
+  bottom: -8px;
   left: 0;
-  
-  /* CAMBIO: El oro/arena resalta hermoso sobre el plateado oscuro */
-  background-color: #c5a880;     
-  
+
+  background-color: #c5a880;
+
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
@@ -63,4 +96,28 @@
 .nav-url:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .navbar-right {
+    gap: 1rem;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .nav-url {
+    font-size: 0.75rem;
+  }
 }
