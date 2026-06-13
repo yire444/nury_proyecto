@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/About.css';
-import logoEmpresa from '../assets/logo_img.jpg';
+import logoEmpresa from '../assets/logoNF.png';
 
 const About = () => {
     return (

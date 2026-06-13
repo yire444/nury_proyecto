@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Footer.css';
-import logoCompany from '../assets/logo_img.jpg';
+import logoCompany from '../assets/logoNF.png';
 import { navMenu } from './Navbar';
 import { FiBookOpen, FiMail, FiMapPin, FiInstagram } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
