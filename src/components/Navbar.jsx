@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import logoCompanyBlack from "../assets/NFclaro.png";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export const navMenu = [
   { id: 1, name: "Inicio", url: "#inicio" },
@@ -28,18 +29,27 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const handleLinkClick = () => setMenuOpen(false);
+  const handleInicioClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setMenuOpen(false);
+  };
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-active" : ""}`}>
       <div className="navbar-left">
-        <a href="#inicio" className="logo-container" onClick={handleLinkClick}>
+        <a href="#inicio" className="logo-container" onClick={handleInicioClick}>
           <img src={logoCompanyBlack} alt="Logo Arquitectura" className="logo" />
           <span className="logo-text">NF ARQUITECTURA</span>
         </a>
@@ -47,23 +57,27 @@ const Navbar = () => {
 
       {/* Botón hamburguesa */}
       <button
-        className={`menu-toggle ${menuOpen ? "open" : ""}`}
+        className="menu-toggle-icon"
         onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Abrir menú de navegación"
+        aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={menuOpen}
-      > 
-        <span className="hamburger-bar"></span>
-        <span className="hamburger-bar"></span>
-        <span className="hamburger-bar"></span>
+      >
+        {menuOpen ? <FiX /> : <FiMenu />}
       </button>
 
       <div className={`navbar-right ${menuOpen ? "show" : ""}`}>
         {navMenu.map((enlace) => (
-          <a 
-            key={enlace.id} 
-            href={enlace.url} 
-            className="nav-url" 
-            onClick={handleLinkClick}
+          <a
+            key={enlace.id}
+            href={enlace.url}
+            className="nav-url"
+            onClick={(e) => {
+              if (enlace.url === "#inicio") {
+                handleInicioClick(e);
+              } else {
+                closeMenu();
+              }
+            }}
           >
             {enlace.name}
           </a>

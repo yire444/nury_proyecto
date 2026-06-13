@@ -1,3 +1,6 @@
+/* src/styles/Navbar.css */
+
+/* Fuente Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 /* Navbar principal */
@@ -99,26 +102,23 @@
   transform-origin: bottom left;
 }
 
-/* Botón hamburguesa */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 26px;
-  height: 18px;
+/* 🚀 NUEVA CLASE: Botón Hamburguesa con React Icons */
+.menu-toggle-icon {
+  display: none; /* 🎯 Aquí le decimos que en PC NO SE MUESTRE */
   background: transparent;
   border: none;
+  color: white;
+  font-size: 1.8rem; /* Controla el tamaño del icono directamente */
   cursor: pointer;
   z-index: 1010;
   padding: 0;
+  transition: color 0.3s ease;
 }
 
-.hamburger-bar {
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  transition: all 0.3s ease;
+.menu-toggle-icon:hover {
+  color: #c5a880; /* Cambia a dorado al pasar el mouse por encima */
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -139,14 +139,14 @@
     letter-spacing: 2px;
   }
 
-  .menu-toggle {
+  /* 🚀 Muestra el botón de icono SOLO en pantallas de celulares/tablets */
+  .menu-toggle-icon {
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .menu-toggle.open .hamburger-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .menu-toggle.open .hamburger-bar:nth-child(2) { opacity: 0; }
-  .menu-toggle.open .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
+  /* Menú desplegable móvil */
   .navbar-right {
     position: fixed;
     top: 0;
