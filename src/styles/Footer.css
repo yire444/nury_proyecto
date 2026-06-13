@@ -1,6 +1,5 @@
-/* src/styles/Footer.css */
-
-.footer-container {
+/* 1. CONTENEDOR GENERAL */
+.footer {
   width: 100%;
   box-sizing: border-box;
   background-color: #1a1a1a;
@@ -28,6 +27,8 @@
   max-width: 160px;
   height: auto;
   object-fit: contain;
+  /* 💡 Filtro pro para integrar NFnegro.png eliminando el recuadro blanco tosco */
+  filter: invert(1) brightness(0.9); 
 }
 
 .footer-slogan p {

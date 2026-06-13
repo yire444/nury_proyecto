@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/Footer.css';
-import logoCompany from '../assets/logoNF.png';
+import '../styles/Footer.css'
+import logoCompanyNegro from '../assets/NFclaro.png';
 import { navMenu } from './Navbar';
 import { FiBookOpen, FiMail, FiMapPin, FiInstagram } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -41,7 +41,7 @@ const Footer = () => {
 
             {/*Sección logo y emblema*/}
             <figure className='footer-brand'>
-                <img src={logoCompany} alt="Logo NF arquitectura" className='footer-logo' />
+                <img src={logoCompanyNegro} alt="Logo NF arquitectura" className='footer-logo' />
                 <figcaption className='footer-slogan'><p>Transformando ideas en espacios con identidad</p></figcaption>
             </figure>
 
