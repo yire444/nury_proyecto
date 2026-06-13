@@ -12,30 +12,59 @@ export const navMenu = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  const handleLinkClick = () => setMenuOpen(false);
+
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-active" : ""}`}>
       <div className="navbar-left">
-        <a href="#inicio" className="logo-container">
+        <a href="#inicio" className="logo-container" onClick={handleLinkClick}>
           <img src={logo} alt="Logo Arquitectura" className="logo" />
           <span className="logo-text">NF ARQUITECTURA</span>
         </a>
       </div>
 
-      <div className="navbar-right">
+      {/* Botón hamburguesa */}
+      <button
+        className={`menu-toggle ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Abrir menú de navegación"
+        aria-expanded={menuOpen}
+      > 
+        <span className="hamburger-bar"></span>
+        <span className="hamburger-bar"></span>
+        <span className="hamburger-bar"></span>
+      </button>
+
+      <div className={`navbar-right ${menuOpen ? "show" : ""}`}>
         {navMenu.map((enlace) => (
-          <a key={enlace.id} href={enlace.url} className="nav-url">
+          <a 
+            key={enlace.id} 
+            href={enlace.url} 
+            className="nav-url" 
+            onClick={handleLinkClick}
+          >
             {enlace.name}
           </a>
         ))}
