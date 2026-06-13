@@ -1,48 +1,106 @@
 import React from 'react';
 import '../styles/Footer.css';
+import logoCompany from '../assets/logo_img.jpg';
+import { navMenu } from './Navbar';
+import { FiBookOpen, FiMail, FiMapPin, FiInstagram } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
+
+export const listContacs = [
+    {
+        id: 1,
+        text: 'yire2005lol@gmail.com',
+        url: 'mailto:yire2005lol@gmail.com',
+        icon: <FiMail />,
+        esExterno: false
+    },
+
+    {
+        id: 2,
+        text: 'Whatsapp',
+        url: 'https://wa.me/915214147',
+        icon: <FaWhatsapp />,
+        esExterno: true
+    },
+
+    {
+        id: 3,
+        text: 'Instagram',
+        url: 'https://www.instagram.com/nf_arquitectura?igsh=MW5uanNqMDZlbHk3aw==',
+        icon: <FiInstagram />,
+        esExterno: true
+    }
+]
+
 
 const Footer = () => {
-    const anioActual = new Date().getFullYear();
+
+    const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="footer-container">
-            <div className="footer-content">
-                
-                {/* Bloque 1: Marca de la Arquitecta */}
-                <div className="footer-section brand-box">
-                    <h2 className="footer-logo">
-                        NURY <span className="footer-logo-sub">ARQUITECTURA</span>
-                    </h2>
-                    <p className="footer-tagline">Transformando ideas en espacios con identidad.</p>
-                </div>
+        <footer className="footer">
 
-                {/* Bloque 2: Redes y Contacto (Enlaces Activos) */}
-                <div className="footer-section links-box">
-                    <h3 className="footer-title">Contacto</h3>
-                    <div className="footer-links">
-                        <a href="https://wa.me/tu_numero" target="_blank" rel="noopener noreferrer" className="footer-link-item">
-                            WhatsApp
-                        </a>
-                        <a href="https://instagram.com/tu_usuario" target="_blank" rel="noopener noreferrer" className="footer-link-item">
-                            Instagram
-                        </a>
-                    </div>
-                </div>
+            {/*Sección logo y emblema*/}
+            <figure className='footer-brand'>
+                <img src={logoCompany} alt="Logo NF arquitectura" className='footer-logo' />
+                <figcaption className='footer-slogan'><p>Transformando ideas en espacios con identidad</p></figcaption>
+            </figure>
 
-                {/* Bloque 3: Sección Legal / Libro de Reclamaciones */}
-                <div className="footer-section legal-box">
-                    <h3 className="footer-title">Transparencia</h3>
-                    <a href="#libro-reclamaciones" className="libro-reclamaciones-btn">
-                        <span className="libro-icono">📘</span> Libro de Reclamaciones
+            {/*Sección de navegación*/}
+            <section className='footer-section'>
+                <h3 className='footer-subtitle'>Explorar</h3>
+                <div className='footer-links-group'>
+                    {navMenu.map((nav) => (
+                        <a
+                            key={nav.id}
+                            href={nav.url}
+                            className='footer-link'
+                        >
+                            {nav.name}
+                        </a>
+                    ))}
+                </div>
+            </section>
+
+
+            {/*Sección contactos*/}
+            <section className='footer-section'>
+                <h3 className='footer-subtitle'>Contacto</h3>
+                <div className='footer-links-group'>
+                    {listContacs.map((contact) => (
+                        <a
+                            key={contact.id}
+                            href={contact.url}
+                            target={contact.esExterno ? "_blank" : "_self"}
+                            rel={contact.esExterno ? "noopener noreferrer" : ""}
+                            className="footer-link"
+                        >
+
+                            {React.cloneElement(contact.icon, { className: "footer-icon" })}
+                            {contact.text}
+                        </a>
+                    ))}
+                </div>
+            </section>
+
+            {/* Sección Soporte / Libro de Reclamaciones */}
+            <section className='footer-section'>
+                <h3 className='footer-subtitle'>Soporte</h3>
+                <div className='footer-links-group'>
+                    <a
+                        href=""
+                        className='footer-link'
+                    >
+                        <FiBookOpen className='footer-icon' />
+                        <span>Libro de Reclamaciones</span>
                     </a>
                 </div>
+            </section>
 
-            </div>
-
-            {/* Línea final de Créditos */}
-            <div className="footer-bottom">
-                <p>&copy; {anioActual} Todos los derechos reservados.</p>
-                <p>Diseñado & Desarrollado por <span className="author-highlight">Nury</span></p>
+            <div className='footer-credits'>
+                <p>&copy; {currentYear} Todos los derechos reservados.</p>
+                <p>Diseñado y Desarrollado por
+                    <span className='footer-authors'>Jair y Yire</span>
+                </p>
             </div>
         </footer>
     );

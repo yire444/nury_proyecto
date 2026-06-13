@@ -1,20 +1,22 @@
 import React from 'react';
 import '../styles/About.css';
 import logoEmpresa from '../assets/logo_img.jpg';
+import { FiBookOpen, FiMail, FiMapPin, FiInstagram } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const About = () => {
     return (
         <section id="sobre-mi" className="about-container">
             <div className="about-content">
                 
-                {/* Columna Izquierda: Imagen Conceptual o Retrato */}
+                {/*Logo*/}
                 <div className="about-image">
                     <div className="about-img-logo">
-                        <img src={logoEmpresa} alt="Logo Nury Arquitectura" />
+                        <img src={logoEmpresa} alt="Imagen no encontrada" />
                     </div>
                 </div>
 
-                {/* Columna Derecha: El Mensaje y Filosofía */}
+                {/*Descripcion*/}
                 <div className="about-text-content">
                     <span className="about-subtitle">Filosofía & Enfoque</span>
                     <h2 className="about-title">Creando espacios con alma y precisión técnica</h2>

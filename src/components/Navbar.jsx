@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/Navbar.css';
+
+export const navMenu = [
+    { id:1, name: 'Sobre Nosotros', url: '#sobre-mi' },
+    { id:2, name: 'Servicios', url: '#servicios' },
+    { id:3, name: 'Proyectos', url: '#proyectos' },
+    { id:4, name: 'Contacto', url: '#contacto' },
+];
+
 const Navbar = () => {
-    {/*Menú de navegación del lado izquierdo*/}
-    const navMenu = [
-        { name: 'Sobre mí', url: '#sobre-mi' },
-        { name: 'Servicios', url: '#servicios' },
-        { name: 'Proyectos', url: '#proyectos' },
-        { name: 'Contacto', url: '#contacto' },
-        
-    ];
     
     return (
         <nav className="navbar">
@@ -19,9 +19,10 @@ const Navbar = () => {
 
             {/* Navbar lado derecho */}
             <div className="navbar-right">
-                {navMenu.map((enlace, e) => (
-                    <a key={e} href={enlace.url} className="nav-url">
-                        {enlace.name}
+                {/* 3. Sigue leyendo el array de arriba sin problemas */}
+                {navMenu.map((nav) => (
+                    <a key={nav.id} href={nav.url} className="nav-url">
+                        {nav.name}
                     </a>
                 ))}
             </div>
