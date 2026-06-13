@@ -1,5 +1,6 @@
-/* 1. CONTENEDOR GENERAL */
-.footer {
+/* src/styles/Footer.css */
+
+.footer-container {
   width: 100%;
   box-sizing: border-box;
   background-color: #1a1a1a;

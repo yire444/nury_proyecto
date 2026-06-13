@@ -2,9 +2,30 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link id="dynamic-favicon" rel="icon" type="image/svg+xml" href="./src/assets/logoNF.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arquitecta Nury</title>
+
+    <script type="module">
+      const favicon = document.getElementById('dynamic-favicon');
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function handleThemeChange(e) {
+        if (e.matches) {
+          // Imagen cuando el sistema está en MODO OSCURO
+          favicon.href = "./src/assets/NFnegro.png";
+        } else {
+          // Imagen cuando el sistema está en MODO CLARO (Cambia esta ruta por tu logo claro)
+          favicon.href = "./src/assets/NFclaro.png"; 
+        }
+      }
+
+      // Ejecutar al cargar la página
+      handleThemeChange(darkModeMediaQuery);
+
+      // Escuchar cambios en tiempo real si el usuario cambia el modo del sistema
+      darkModeMediaQuery.addEventListener('change', handleThemeChange);
+    </script>
   </head>
   <body>
     <div id="root"></div>

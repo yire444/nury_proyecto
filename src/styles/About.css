@@ -1,123 +1,129 @@
-.about-container {
+.hero {
   width: 100%;
-  box-sizing: border-box;
-  padding: 8rem 4rem;
-  background-color: #2d3135; 
-  color: #ffffff;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-.about-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start; /* Alinea arriba para un look más editorial */
-  gap: 5rem;
-}
+/* Imagen */
 
-/* --- COLUMNA IZQUIERDA (Nuevas Clases) --- */
-.about-image {
-  flex: 1;
-  min-width: 300px;
-}
-
-.about-img-logo {
-  width: 100%;
-  height: 500px; 
-  background-color: #212529; 
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Control exacto de la imagen interna */
-.about-img-logo img {
+.hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  object-position: center; 
-  display: block;
+  object-fit: cover;
+  animation: zoom 5s linear;
 }
 
-/* --- COLUMNA DERECHA (Nuevas Clases) --- */
-.about-text-content {
-  flex: 1.2;
+/* Oscurecer imagen */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+}
+
+/* Contenido */
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 650px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 25px;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.hero-content button {
+  padding: 14px 40px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.hero-content button:hover {
+  background: white;
+  color: black;
+}
+
+/* Indicadores */
+
+.dots {
+  position: absolute;
+  z-index: 3;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  gap: 12px;
 }
 
-.about-subtitle {
-  color: #c5a880; 
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 600;
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: .3s;
 }
 
-.about-title {
-  font-size: 2.2rem;
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: 0.02em;
-  margin: 0;
-  color: #ffffff;
+.dot.active {
+  background: white;
 }
 
-/* Formato y alineación limpia para las descripciones */
-.about-description {
-  color: #b2b2ba; 
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin: 0;
-  font-weight: 300;
-  text-align: justify;       /* Justifica el bloque de texto */
-  text-justify: inter-word;  /* Espaciado limpio entre palabras */
-}
+/* Zoom suave */
 
-/* --- PILARES DE TRABAJO --- */
-.about-pillars {
-  display: flex;
-  gap: 2.5rem;
-  margin-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 2rem;
-}
-
-.pillar-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.pillar-number {
-  color: #c5a880;
-  font-size: 1.2rem;
-  font-weight: 700;
-  font-family: serif; 
-}
-
-.pillar-text {
-  color: #ffffff;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-}
-
-@media (max-width: 968px) {
-  .about-content {
-    flex-direction: column;
-    gap: 3rem;
-  }
-  
-  .about-img-logo {
-    height: 350px; 
+@keyframes zoom {
+  from {
+    transform: scale(1);
   }
 
-  .about-title {
-    font-size: 1.8rem;
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .hero-content{
+    left: 5%;
+    right: 5%;
   }
 
-  .about-pillars {
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  .hero-content h1{
+    font-size: 2.7rem;
   }
+
+  .hero-content p{
+    font-size: 1rem;
+  }
+
+}
+.hero-image{
+    object-fit: contain;
 }

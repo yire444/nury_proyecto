@@ -1,22 +1,20 @@
 import React from 'react';
 import '../styles/About.css';
 import logoEmpresa from '../assets/logo_img.jpg';
-import { FiBookOpen, FiMail, FiMapPin, FiInstagram } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
 
 const About = () => {
     return (
         <section id="sobre-mi" className="about-container">
             <div className="about-content">
                 
-                {/*Logo*/}
+                {/* Columna Izquierda: Imagen Conceptual o Retrato */}
                 <div className="about-image">
                     <div className="about-img-logo">
-                        <img src={logoEmpresa} alt="Imagen no encontrada" />
+                        <img src={logoCompany || logoEmpresa} alt="Logo Nury Arquitectura" />
                     </div>
                 </div>
 
-                {/*Descripcion*/}
+                {/* Columna Derecha: El Mensaje y Filosofía */}
                 <div className="about-text-content">
                     <span className="about-subtitle">Filosofía & Enfoque</span>
                     <h2 className="about-title">Creando espacios con alma y precisión técnica</h2>
@@ -26,7 +24,7 @@ const About = () => {
                     </p>
                     
                     <p className="about-description">
-                        Cada proyecto representa un lienzo en blanco y una oportunidad para traducir las aspiraciones de nuestros clientes en realidades tangibles. Desde la conceptualización mediante visualización tridimensional avanzada hasta la rigurosidad del plano técnico, respaldamos cada etapa con un compromiso absoluto por el detalle y la excelencia constructiva.
+                        Cada proyecto representa un lienzo en blanco y una oportunidad para traducir las aspiraciones de nuestros clientes en realidades tangibles. Desde la conceptualización mediante visualización tridimensional avanzada hasta la rigurosidad del plano técnico, respaldamos cada etapa con un compromiso absoluto por el detalle y la excellence constructiva.
                     </p>
 
                     {/* Puntos del trabajo */}
@@ -34,7 +32,7 @@ const About = () => {
                         <div className="pillar-item">
                             <span className="pillar-number">01</span>
                             <span className="pillar-text">Diseño Funcional</span>
-                        </div>
+                        </div >
                         <div className="pillar-item">
                             <span className="pillar-number">02</span>
                             <span className="pillar-text">Visualización 3D</span>
@@ -44,11 +42,11 @@ const About = () => {
                             <span className="pillar-text">Atención al Detalle</span>
                         </div>
                     </div>
-                </div>
-
-            </div>
+                </div> {/* Cierre de about-text-content */}
+                
+            </div> {/* 🚀 ¡AQUÍ ESTÁ! Agregado el cierre faltante de about-content */}
         </section>
     );
-}
+};
 
 export default About;
