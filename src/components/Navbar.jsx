@@ -1,26 +1,24 @@
 import React from 'react';
 import '../styles/Navbar.css';
+
+// 🚀 Corregido: Afuera, exportado y con IDs únicos
+export const navMenu = [
+    { id: 1, name: 'Sobre Nosotros', url: '#sobre-mi' },
+    { id: 2, name: 'Servicios', url: '#servicios' },
+    { id: 3, name: 'Proyectos', url: '#proyectos' },
+    { id: 4, name: 'Contacto', url: '#contacto' },
+];
+
 const Navbar = () => {
-    {/*Menú de navegación del lado izquierdo*/}
-    const navMenu = [
-        { name: 'Sobre mí', url: '#sobre-mi' },
-        { name: 'Servicios', url: '#servicios' },
-        { name: 'Proyectos', url: '#proyectos' },
-        { name: 'Contacto', url: '#contacto' },
-        
-    ];
-    
     return (
         <nav className="navbar">
-            {/* Navbar lado izquierdo */}
             <div className="navbar-left">
                 <a className="nav-url" href="#">Inicio</a>
             </div>
 
-            {/* Navbar lado derecho */}
             <div className="navbar-right">
-                {navMenu.map((enlace, e) => (
-                    <a key={e} href={enlace.url} className="nav-url">
+                {navMenu.map((enlace) => (
+                    <a key={enlace.id} href={enlace.url} className="nav-url">
                         {enlace.name}
                     </a>
                 ))}

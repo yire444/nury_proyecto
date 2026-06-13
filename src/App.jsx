@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Navbar from './components/Navbar';
 import './App.css'
 import Footer from './components/Footer';
-import About from './components/About';
 import Nosotros from './components/Nostros';
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <About />
       <Nosotros />
       <Footer />
     </>
