@@ -32,7 +32,7 @@ export const listContacs = [
 ]
 
 
-const Footer = () => {
+const Footer = ({ onOpenReclamaciones }) => {
 
     const currentYear = new Date().getFullYear();
 
@@ -74,7 +74,6 @@ const Footer = () => {
                             rel={contact.esExterno ? "noopener noreferrer" : ""}
                             className="footer-link"
                         >
-
                             {React.cloneElement(contact.icon, { className: "footer-icon" })}
                             {contact.text}
                         </a>
@@ -87,8 +86,12 @@ const Footer = () => {
                 <h3 className='footer-subtitle'>Soporte</h3>
                 <div className='footer-links-group'>
                     <a
-                        href=""
+                        href="#libro"
                         className='footer-link'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onOpenReclamaciones(); 
+                        }}
                     >
                         <FiBookOpen className='footer-icon' />
                         <span>Libro de Reclamaciones</span>
@@ -98,7 +101,7 @@ const Footer = () => {
 
             <div className='footer-credits'>
                 <p>&copy; {currentYear} Todos los derechos reservados.</p>
-                <p>Diseñado y Desarrollado por
+                <p>Diseñado y Desarrollado por{' '}
                     <span className='footer-authors'>Jair y Yire</span>
                 </p>
             </div>
