@@ -1,6 +1,3 @@
-/* src/styles/Navbar.css */
-
-/* Fuente Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 /* Navbar principal */
@@ -47,7 +44,6 @@
   height: 48px; 
 }
 
-/* Texto ARQUITECTURA */
 .logo-text {
   color: white;
   font-family: 'Montserrat', sans-serif;
@@ -58,7 +54,7 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Menú Lado Derecho (Desktop) */
+/* Menú Lado Derecho */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -83,7 +79,6 @@
   color: #c5a880; 
 }
 
-/* Línea dorada */
 .nav-url::after {
   content: "";
   position: absolute;
@@ -102,13 +97,12 @@
   transform-origin: bottom left;
 }
 
-/* 🚀 NUEVA CLASE: Botón Hamburguesa con React Icons */
 .menu-toggle-icon {
-  display: none; /* 🎯 Aquí le decimos que en PC NO SE MUESTRE */
+  display: none;
   background: transparent;
   border: none;
   color: white;
-  font-size: 1.8rem; /* Controla el tamaño del icono directamente */
+  font-size: 1.8rem;
   cursor: pointer;
   z-index: 1010;
   padding: 0;
@@ -116,7 +110,7 @@
 }
 
 .menu-toggle-icon:hover {
-  color: #c5a880; /* Cambia a dorado al pasar el mouse por encima */
+  color: #c5a880; 
 }
 
 
@@ -139,14 +133,12 @@
     letter-spacing: 2px;
   }
 
-  /* 🚀 Muestra el botón de icono SOLO en pantallas de celulares/tablets */
   .menu-toggle-icon {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* Menú desplegable móvil */
   .navbar-right {
     position: fixed;
     top: 0;

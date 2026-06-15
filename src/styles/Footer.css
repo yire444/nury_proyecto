@@ -13,7 +13,7 @@
   max-width: 100%;
 }
 
-/* 2. BLOQUE MARCA (LOGO Y EMBLEMA) */
+/* 2. BLOQUE MARCA */
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -27,7 +27,6 @@
   max-width: 160px;
   height: auto;
   object-fit: contain;
-  /* 💡 Filtro pro para integrar NFnegro.png eliminando el recuadro blanco tosco */
   filter: invert(1) brightness(0.9); 
 }
 
@@ -38,7 +37,7 @@
   margin: 0;
 }
 
-/* 3. COLUMNAS REUTILIZABLES (Aplica a Explorar, Contacto y Soporte a la vez) */
+/* 3. COLUMNAS REUTILIZABLES */
 .footer-section {
   display: flex;
   flex-direction: column;
@@ -114,7 +113,7 @@
   margin-left: 0.3rem;
 }
 
-/* 6. RESPONSIVE COMPLETO (Celulares y Tablets) */
+/* 6. RESPONSIVE COMPLETO  */
 @media (max-width: 768px) {
   .footer {
     padding: 4rem 2rem 2rem 2rem;
