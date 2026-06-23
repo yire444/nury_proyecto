@@ -53,7 +53,7 @@ const Navbar = ({ onNavigateToInicio, onNavigateToNosotros, onNavigateToServicio
       <div className="navbar-left">
         <a href="#inicio" className="logo-container" onClick={handleInicioClick}>
           <img src={logoCompanyBlack} alt="Logo Arquitectura" className="logo" />
-          <span className="logo-text">NF ARQUITECTURA</span>
+          <span className="logo-text">ARQUITECTURA</span>
         </a>
       </div>
 
