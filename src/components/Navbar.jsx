@@ -11,7 +11,7 @@ export const navMenu = [
   { id: 5, name: "Contacto", url: "#contacto" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ onNavigateToInicio, onNavigateToServicios, onNavigateToContacto }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -37,10 +37,11 @@ const Navbar = () => {
 
   const handleInicioClick = (e) => {
     e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if (onNavigateToInicio) {
+      onNavigateToInicio(e); 
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
     setMenuOpen(false);
   };
 
@@ -74,6 +75,14 @@ const Navbar = () => {
             onClick={(e) => {
               if (enlace.url === "#inicio") {
                 handleInicioClick(e);
+              } else if (enlace.url === "#servicios") {
+                e.preventDefault();
+                onNavigateToServicios(e);
+                closeMenu();
+              } else if (enlace.url === "#contacto") {
+                e.preventDefault();
+                if (onNavigateToContacto) onNavigateToContacto(e);
+                closeMenu();
               } else {
                 closeMenu();
               }

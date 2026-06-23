@@ -1,0 +1,231 @@
+.contacto-section {
+  background-color: #2d3135;
+  padding: 8rem 4rem 6rem 4rem;
+  color: #f5f5f7;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.contacto-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.contacto-badge {
+  color: #c5a880;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.contacto-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-top: 0.6rem;
+}
+
+.contacto-linea-decorativa {
+  width: 60px;
+  height: 2px;
+  background-color: #c5a880;
+  margin: 1.5rem auto 0;
+}
+
+.contacto-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 5rem;
+}
+
+.contacto-info-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacto-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.contacto-text {
+  color: #b0b3b8;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.contacto-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.contacto-icon {
+  font-size: 1.4rem;
+  color: #c5a880;
+  flex-shrink: 0;
+}
+
+.contacto-item h4 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.contacto-item p {
+  margin: 0;
+  color: #b0b3b8;
+  font-size: 0.95rem;
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+  width: fit-content;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20ba5a;
+  transform: translateY(-2px);
+}
+
+.ws-icon {
+  font-size: 1.3rem;
+}
+
+.contacto-form-panel {
+  flex: 1.2;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 3rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-group-row .form-group {
+  flex: 1;
+}
+
+.contacto-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contacto-form input,
+.contacto-form select,
+.contacto-form textarea {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.9rem;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacto-form input:focus,
+.contacto-form select:focus,
+.contacto-form textarea:focus {
+  outline: none;
+  border-color: #c5a880;
+  box-shadow: 0 0 8px rgba(197, 168, 128, 0.2);
+}
+
+.contacto-form select option {
+  background-color: #2d3135;
+  color: #ffffff;
+}
+
+.btn-enviar-formulario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: #c5a880;
+  color: #121212;
+  border: none;
+  padding: 1.1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+}
+
+.btn-enviar-formulario:hover {
+  background-color: #b3956d;
+  transform: translateY(-1px);
+}
+
+.btn-send-icon {
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .contacto-container {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .btn-whatsapp {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacto-section {
+    padding: 6rem 1.5rem 4rem 1.5rem;
+  }
+  .form-group-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .contacto-form-panel {
+    padding: 1.5rem;
+  }
+  .contacto-title {
+    font-size: 1.9rem;
+  }
+}

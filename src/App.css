@@ -1,9 +1,12 @@
+/* 🌍 ESTILOS GLOBALES BASE - Se cargan al inicio */
 body {
   margin: 0;
   background-color: #2d3135; 
   color: #f5f5f7;            
   min-height: 100vh;         
 }
+
+/* Clases utilitarias que comparten varias pantallas */
 .main-content {
   padding-top: 8rem; 
   padding-left: 4rem;
