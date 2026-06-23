@@ -29,7 +29,15 @@ export const listContacs = [
     }
 ]
 
-const Footer = ({ onOpenReclamaciones, onNavigateToInicio, onNavigateToServicios, onNavigateToContacto }) => {
+// 🎯 CORREGIDO: Ahora recibe las 5 funciones de navegación como props desde App.jsx
+const Footer = ({ 
+    onOpenReclamaciones, 
+    onNavigateToInicio, 
+    onNavigateToNosotros, 
+    onNavigateToServicios, 
+    onNavigateToProyectos, 
+    onNavigateToContacto 
+}) => {
 
     const currentYear = new Date().getFullYear();
 
@@ -42,7 +50,7 @@ const Footer = ({ onOpenReclamaciones, onNavigateToInicio, onNavigateToServicios
                 <figcaption className='footer-slogan'><p>Transformando ideas en espacios con identidad</p></figcaption>
             </figure>
 
-            {/*Sección de navegación*/}
+            {/*Sección de navegación - 🎯 TOTALMENTE MAPEADA PARA LAS 5 PÁGINAS */}
             <section className='footer-section'>
                 <h3 className='footer-subtitle'>Explorar</h3>
                 <div className='footer-links-group'>
@@ -52,14 +60,21 @@ const Footer = ({ onOpenReclamaciones, onNavigateToInicio, onNavigateToServicios
                             href={nav.url}
                             className='footer-link'
                             onClick={(e) => {
-                                if (nav.url === "#inicio") {
-                                    e.preventDefault();
+                                e.preventDefault(); // Congela la recarga de página para mantener la SPA
+                                
+                                // Limpiamos el hash (ej: "#nosotros" pasa a ser "nosotros")
+                                const targetScreen = nav.url.replace('#', ''); 
+
+                                // Evaluamos las 5 opciones reales de tu App.jsx
+                                if (targetScreen === 'inicio' || targetScreen === 'home') {
                                     if (onNavigateToInicio) onNavigateToInicio(e);
-                                } else if (nav.url === "#servicios") {
-                                    e.preventDefault();
+                                } else if (targetScreen === 'nosotros') {
+                                    if (onNavigateToNosotros) onNavigateToNosotros(e);
+                                } else if (targetScreen === 'servicios') {
                                     if (onNavigateToServicios) onNavigateToServicios(e);
-                                } else if (nav.url === "#contacto") {
-                                    e.preventDefault();
+                                } else if (targetScreen === 'proyectos') {
+                                    if (onNavigateToProyectos) onNavigateToProyectos(e);
+                                } else if (targetScreen === 'contacto') {
                                     if (onNavigateToContacto) onNavigateToContacto(e);
                                 }
                             }}
@@ -69,7 +84,6 @@ const Footer = ({ onOpenReclamaciones, onNavigateToInicio, onNavigateToServicios
                     ))}
                 </div>
             </section>
-
 
             {/*Sección contactos*/}
             <section className='footer-section'>
