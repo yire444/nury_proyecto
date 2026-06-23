@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import About from './components/About';
 import Nosotros from './components/Nosotros';
 import LibroReclamaciones from "./components/LibroReclamaciones";
+import Proyectos from './components/Proyectos';
 import Servicios from './components/Servicios';
 import Contacto from './components/Contacto';
 
@@ -24,6 +25,7 @@ function App() {
         onNavigateToInicio={(e) => handleNavigate("home", e)}
         onNavigateToNosotros={(e) => handleNavigate("nosotros", e)}
         onNavigateToServicios={(e) => handleNavigate("servicios", e)}
+        onNavigateToProyectos={(e) => handleNavigate("proyectos", e)}
         onNavigateToContacto={(e) => handleNavigate("contacto", e)}
       />
 
@@ -42,6 +44,8 @@ function App() {
 
       {currentScreen === "servicios" && <Servicios />}
 
+      {currentScreen === "proyectos" && <Proyectos />}
+
       {currentScreen === "contacto" && <Contacto />}
 
       <LibroReclamaciones isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
@@ -51,6 +55,7 @@ function App() {
         onNavigateToInicio={(e) => handleNavigate("home", e)}
         onNavigateToNosotros={(e) => handleNavigate("nosotros", e)}
         onNavigateToServicios={(e) => handleNavigate("servicios", e)}
+        onNavigateToProyectos={(e) => handleNavigate("proyectos", e)}
         onNavigateToContacto={(e) => handleNavigate("contacto", e)}
       />
     </>

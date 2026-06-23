@@ -12,7 +12,7 @@ export const navMenu = [
 ];
 
 // 🎯 ADAPTADO: Añadimos onNavigateToNosotros a las props destructuradas
-const Navbar = ({ onNavigateToInicio, onNavigateToNosotros, onNavigateToServicios, onNavigateToContacto }) => {
+const Navbar = ({ onNavigateToInicio, onNavigateToNosotros, onNavigateToServicios,onNavigateToProyectos, onNavigateToContacto }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -85,7 +85,13 @@ const Navbar = ({ onNavigateToInicio, onNavigateToNosotros, onNavigateToServicio
                 e.preventDefault();
                 onNavigateToServicios(e);
                 closeMenu();
-              } else if (enlace.url === "#contacto") {
+              } 
+              else if (enlace.url === "#proyectos") {
+                e.preventDefault();
+                if (onNavigateToProyectos) onNavigateToProyectos(e);
+                closeMenu();
+              }
+              else if (enlace.url === "#contacto") {
                 e.preventDefault();
                 if (onNavigateToContacto) onNavigateToContacto(e);
                 closeMenu();
