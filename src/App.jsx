@@ -10,7 +10,7 @@ import Contacto from './components/Contacto';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentScreen, setCurrentScreen] = useState("home"); 
+  const [currentScreen, setCurrentScreen] = useState("home");
 
   const handleNavigate = (screenName, e) => {
     if (e) e.preventDefault();
@@ -22,6 +22,7 @@ function App() {
     <>
       <Navbar 
         onNavigateToInicio={(e) => handleNavigate("home", e)} 
+        onNavigateToNosotros={(e) => handleNavigate("nosotros", e)}
         onNavigateToServicios={(e) => handleNavigate("servicios", e)}
         onNavigateToContacto={(e) => handleNavigate("contacto", e)}
       />
@@ -29,8 +30,10 @@ function App() {
       {currentScreen === "home" && (
         <>
           <About />
-          <Nosotros />
         </>
+      )}
+      {currentScreen === "nosotros" && (
+        <Nosotros esPantallaCompleta={true} />
       )}
 
       {currentScreen === "servicios" && <Servicios />}
@@ -39,10 +42,10 @@ function App() {
 
       <LibroReclamaciones isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
       
-      
       <Footer 
         onOpenReclamaciones={() => setIsModalOpen(true)}
         onNavigateToInicio={(e) => handleNavigate("home", e)} 
+        onNavigateToNosotros={(e) => handleNavigate("nosotros", e)}
         onNavigateToServicios={(e) => handleNavigate("servicios", e)}
         onNavigateToContacto={(e) => handleNavigate("contacto", e)}
       />

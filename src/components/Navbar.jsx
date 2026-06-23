@@ -11,7 +11,8 @@ export const navMenu = [
   { id: 5, name: "Contacto", url: "#contacto" },
 ];
 
-const Navbar = ({ onNavigateToInicio, onNavigateToServicios, onNavigateToContacto }) => {
+// 🎯 ADAPTADO: Añadimos onNavigateToNosotros a las props destructuradas
+const Navbar = ({ onNavigateToInicio, onNavigateToNosotros, onNavigateToServicios, onNavigateToContacto }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -75,6 +76,11 @@ const Navbar = ({ onNavigateToInicio, onNavigateToServicios, onNavigateToContact
             onClick={(e) => {
               if (enlace.url === "#inicio") {
                 handleInicioClick(e);
+              } else if (enlace.url === "#nosotros") {
+                // 🎯 ADAPTADO: Interceptamos el clic en Nosotros para cambiar la pantalla en App.jsx
+                e.preventDefault();
+                if (onNavigateToNosotros) onNavigateToNosotros(e);
+                closeMenu();
               } else if (enlace.url === "#servicios") {
                 e.preventDefault();
                 onNavigateToServicios(e);

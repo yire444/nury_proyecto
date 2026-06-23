@@ -13,7 +13,6 @@ export const listContacs = [
         icon: <FiMail />,
         esExterno: false
     },
-
     {
         id: 2,
         text: 'Whatsapp',
@@ -21,7 +20,6 @@ export const listContacs = [
         icon: <FaWhatsapp />,
         esExterno: true
     },
-
     {
         id: 3,
         text: 'Instagram',
@@ -31,8 +29,7 @@ export const listContacs = [
     }
 ]
 
-
-const Footer = ({ onOpenReclamaciones }) => {
+const Footer = ({ onOpenReclamaciones, onNavigateToInicio, onNavigateToServicios, onNavigateToContacto }) => {
 
     const currentYear = new Date().getFullYear();
 
@@ -54,6 +51,18 @@ const Footer = ({ onOpenReclamaciones }) => {
                             key={nav.id}
                             href={nav.url}
                             className='footer-link'
+                            onClick={(e) => {
+                                if (nav.url === "#inicio") {
+                                    e.preventDefault();
+                                    if (onNavigateToInicio) onNavigateToInicio(e);
+                                } else if (nav.url === "#servicios") {
+                                    e.preventDefault();
+                                    if (onNavigateToServicios) onNavigateToServicios(e);
+                                } else if (nav.url === "#contacto") {
+                                    e.preventDefault();
+                                    if (onNavigateToContacto) onNavigateToContacto(e);
+                                }
+                            }}
                         >
                             {nav.name}
                         </a>
