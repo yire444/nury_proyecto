@@ -3,13 +3,13 @@
   width: 100%;
   box-sizing: border-box;
   background-color: #1a1a1a;
-  padding: 5rem 4rem 2rem 4rem;
+  padding: 2rem 4rem 2rem 4rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 2rem;
   max-width: 100%;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .footer-logo {
-  max-width: 160px;
+  max-width: 50px;
   height: auto;
   object-fit: contain;
   filter: invert(1) brightness(0.9); 
