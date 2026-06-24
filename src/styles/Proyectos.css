@@ -1,9 +1,13 @@
+/* ==========================================================================
+   1. CONTENEDOR GENERAL Y CABECERA
+   ========================================================================== */
 .proyectos-section {
   background-color: #2d3135;
   padding: 6rem 4rem;
   color: #f5f5f7;
   font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .proyectos-header {
@@ -34,86 +38,9 @@
   line-height: 1.7;
 }
 
-/* CARD PRINCIPAL */
-.proyecto-card {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  overflow: hidden;
-  transition: 0.3s ease;
-}
-
-.proyecto-card:hover {
-  border-color: rgba(197, 168, 128, 0.3);
-  transform: translateY(-4px);
-}
-
-/* INFO DEL PROYECTO */
-.proyecto-info {
-  padding: 3rem 2rem;
-}
-
-.proyecto-info h2 {
-  font-size: 1.8rem;
-  color: #ffffff;
-  margin-bottom: 1rem;
-}
-
-.proyecto-info p {
-  color: #b0b3b8;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-/* TAGS */
-.proyecto-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.proyecto-tag {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  color: #c5a880;
-  border: 1px solid rgba(197, 168, 128, 0.3);
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-/* MODELO 3D */
-.modelo-container {
-  width: 100%;
-  height: 650px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.modelo-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .proyectos-section {
-    padding: 4rem 1.5rem;
-  }
-
-  .proyecto-info {
-    padding: 2rem 1.5rem;
-  }
-
-  .modelo-container {
-    height: 450px;
-  }
-}
-
+/* ==========================================================================
+   2. GRID DE PROYECTOS (VISTA PRINCIPAL)
+   ========================================================================== */
 .proyectos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -128,7 +55,7 @@
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .proyecto-card-mini:hover {
@@ -157,22 +84,87 @@
   line-height: 1.5;
 }
 
-/* DETALLE */
+/* ==========================================================================
+   3. VISTA DETALLE DEL PROYECTO SELECCIONADO
+   ========================================================================== */
 .proyecto-detalle {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;   /* Permite posicionar el botón de forma absoluta respecto a este contenedor */
+  padding-left: 140px;  /* Crea el espacio a la izquierda para que el botón no encime el título */
 }
 
+.proyecto-detalle h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.proyecto-detalle p {
+  color: #b0b3b8;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* BOTÓN VOLVER ESTÁTICO A LA IZQUIERDA */
 .btn-volver {
+  position: absolute;   /* Fijo en la zona asignada por el padding-left */
+  left: 0;
+  top: 8px;             /* Ajuste fino para alinearse verticalmente con el h1 */
   background: transparent;
   border: 1px solid #c5a880;
   color: #c5a880;
-  padding: 10px 15px;
+  padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 2rem;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .btn-volver:hover {
   background: rgba(197, 168, 128, 0.1);
+}
+
+/* ==========================================================================
+   4. CONTENEDOR DEL MODELO 3D (DENTRO DE DETALLE)
+   ========================================================================== */
+.modelo-container {
+  width: 100%;
+  height: 650px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.modelo-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE COMPLETO
+   ========================================================================== */
+@media (max-width: 900px) {
+  .proyectos-section {
+    padding: 4rem 1.5rem;
+  }
+
+  /* Rompemos la posición absoluta en móviles para que el botón se sitúe arriba con comodidad */
+  .proyecto-detalle {
+    padding-left: 0;
+  }
+
+  .btn-volver {
+    position: static;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .modelo-container {
+    height: 450px;
+  }
 }
