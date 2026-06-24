@@ -11,7 +11,6 @@ export const navMenu = [
   { id: 5, name: "Contacto", url: "#contacto" },
 ];
 
-// 🎯 ADAPTADO: Añadimos onNavigateToNosotros a las props destructuradas
 const Navbar = ({ onNavigateToInicio, onNavigateToNosotros, onNavigateToServicios,onNavigateToProyectos, onNavigateToContacto }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
